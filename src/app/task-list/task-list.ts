@@ -1,37 +1,45 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TaskService } from '../task.service';
+import { FormsModule } from '@angular/forms';
+import { TaskService, Task } from '../task.service';
+import { TaskFilterComponent } from '../task-filter/task-filter';
 
 @Component({
   selector: 'app-task-list',
-  imports: [CommonModule],
-  template: `
-    <ul class="list-group mb-3">
-      <li *ngFor="let task of taskService.getTasks()"
-          class="list-group-item d-flex align-items-center justify-content-between">
-        
-        <div class="d-flex align-items-center flex-grow-1">
-          <input type="checkbox"
-                 class="form-check-input me-2"
-                 [checked]="task.completed"
-                 (change)="taskService.toggleTask(task.id)" />
-          
-          <span [class.text-decoration-line-through]="task.completed"
-                class="flex-grow-1">
-            {{ task.title }}
-          </span>
-        </div>
-
-        <!-- Delete button -->
-        <button class="btn btn-sm btn-danger ms-2" (click)="deleteTask(task.id)">
-          Delete
-        </button>
-      </li>
-    </ul>
-  `
+  standalone: true,
+  imports: [CommonModule, FormsModule, TaskFilterComponent],
+  templateUrl: './task-list.html',
+  styleUrls: ['./task-list.css']
 })
 export class TaskListComponent {
+  newTask = '';
+  editText = '';
+  editingId: number | null = null;
+
   constructor(public taskService: TaskService) {}
+
+  addTask() {
+    if (this.newTask.trim()) {
+      this.taskService.addTask(this.newTask);
+      this.newTask = '';
+    }
+  }
+
+  toggleTask(id: number) {
+    this.taskService.toggleTask(id);
+  }
+
+  startEdit(task: Task) {
+    this.editingId = task.id;
+    this.editText = task.title;
+  }
+
+  saveEdit(task: Task) {
+    if (this.editText.trim()) {
+      this.taskService.editTask(task.id, this.editText);
+    }
+    this.editingId = null;
+  }
 
   deleteTask(id: number) {
     this.taskService.deleteTask(id);
