@@ -7,8 +7,8 @@
   
   .filter-buttons button {
     background-color: transparent;
-    border: 2px solid #FDF5AA;
-    color: #FDF5AA;
+    border: 2px solid rgb(170, 243, 253);
+    color: rgb(0, 52, 61);
     padding: 8px 16px;
     border-radius: 10px;
     cursor: pointer;
@@ -18,16 +18,16 @@
   }
   
   .filter-buttons button:hover {
-    background-color: #FDF5AA;
+    background-color: rgb(8, 235, 252);
     color: #113F67;
     transform: scale(1.05);
   }
   
-  /* Active filter style */
+
   .filter-buttons button.active {
-    background-color: #FDF5AA;
+    background-color: rgb(170, 236, 253);
     color: #113F67;
-    box-shadow: 0 0 10px #fdf5aa99;
+    box-shadow: 0 0 10px #01726999;
   }
 
   input[type="text"] {

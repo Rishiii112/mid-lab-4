@@ -1,167 +1,120 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .task-app {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f9f7f7, #e3fdfd, #ffe2e2);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px;
-    color: #333;
-  }
-  
-  .container {
-    width: 100%;
-    max-width: 600px;
-  }
-  
-  .card {
-    border-radius: 1.5rem;
-    background: #ffffffcc;
-    backdrop-filter: blur(12px);
-    padding: 2rem;
-    box-shadow: 10px 10px 30px #d1d9e6, -10px -10px 30px #ffffff;
-    transition: transform 0.2s ease;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .card-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #444;
-  }
-  
-  /* Input section */
-  .add-section {
-    display: flex;
-    border-radius: 1rem;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-    box-shadow: inset 4px 4px 10px #d1d9e6, inset -4px -4px 10px #ffffff;
-  }
-  
-  .add-section input {
-    border: none;
-    flex: 1;
-    padding: 1rem;
-    font-size: 1rem;
-    background: transparent;
-    outline: none;
-    color: #444;
-  }
-  
-  .add-section button {
-    background: linear-gradient(135deg, #84fab0, #8fd3f4);
-    border: none;
-    padding: 0 1.5rem;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 0;
-  }
-  
-  .add-section button:hover {
-    opacity: 0.9;
-    transform: scale(1.05);
-  }
-  
-  /* Task list styling */
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    border-radius: 1rem;
-    padding: 1rem 1.2rem;
-    margin-bottom: 0.8rem;
-    background: #ffffffaa;
-    box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: transform 0.2s ease, background 0.3s ease;
-  }
-  
-  li:hover {
-    transform: translateX(6px);
-    background: #fdfdfd;
-  }
-  
-  /* Checkbox */
-  input[type="checkbox"] {
-    transform: scale(1.3);
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  /* Inline edit input */
-  .edit-input {
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 1rem;
-    border-bottom: 1px solid #aaa;
-    padding: 2px;
-  }
-  
-  /* Delete button */
-  button {
-    border: none;
-    padding: 5px 10px;
-    background: linear-gradient(135deg, #ff9a9e, #fecfef);
-    color: white;
-    border-radius: 1rem;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  button:hover {
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    transform: scale(1.05);
-  }
-  
-  /* Completed tasks */
-  .text-decoration-line-through {
-    color: #bbb;
-    text-decoration: line-through;
-  }
-  
-  /* Info/summary section */
-  .alert-info {
-    background: #ffffffcc;
-    border-radius: 1rem;
-    padding: 1rem;
-    text-align: center;
-    font-weight: 500;
-    margin-top: 1.5rem;
-    box-shadow: inset 3px 3px 8px #d1d9e6, inset -3px -3px 8px #ffffff;
-  }
-  
-  /* Progress bar */
-  .progress {
-    height: 12px;
-    border-radius: 1rem;
-    background: #f0f0f0;
-    margin-top: 10px;
-    box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff;
-  }
-  
-  .progress-bar {
-    background: linear-gradient(135deg, #84fab0, #8fd3f4);
-    border-radius: 1rem;
-    transition: width 0.5s ease;
-  }
-  
+/* Center the entire app */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f0f8ff, #faf0ff);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.task-app {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  width: 400px;
+  text-align: center;
+}
+
+/* Title */
+.task-app h2 {
+  margin-bottom: 20px;
+  color: #113F67;
+}
+
+/* Add Section */
+.add-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.add-section input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.add-section button {
+  background-color: #3cc3a1;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-section button:hover {
+  background-color: #2fa885;
+}
+
+/* Task List */
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fefefe;
+  border-radius: 12px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Task Info */
+.task-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  text-align: left;
+}
+
+.task-info input[type="checkbox"] {
+  transform: scale(1.1);
+}
+
+.task-info span {
+  flex-grow: 1;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.task-info span.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* Delete Button */
+.delete-btn {
+  background: #ffb3b3;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #ff8080;
+}
+
+/* Prevent extra space below */
+.task-list:last-child {
+  margin-bottom: 0;
+}

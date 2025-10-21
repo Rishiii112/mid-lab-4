@@ -4,7 +4,6 @@ import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-task-form',
-  standalone: true,
   imports: [FormsModule],
   template: `
     <div class="input-group mb-3">

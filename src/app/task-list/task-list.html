@@ -1,29 +1,27 @@
 <div class="task-app">
  
-  <!-- Add Task -->
-  <div class="add-section">
-  </div>
-
-  <!-- Filter Buttons -->
   <app-task-filter></app-task-filter>
 
-  <!-- Task List -->
-  <ul>
-    <li *ngFor="let task of taskService.getFilteredTasks()">
-      <input type="checkbox"
-             [checked]="task.completed"
-             (change)="toggleTask(task.id)" />
+  <ul class="task-list">
+    <li *ngFor="let task of taskService.getFilteredTasks()" class="task-item">
+      <div class="task-info">
+        <input type="checkbox"
+               [checked]="task.completed"
+               (change)="toggleTask(task.id)" />
 
-      <span *ngIf="editingId !== task.id" (click)="startEdit(task)">
-        {{ task.title }}
-      </span>
+        <span *ngIf="editingId !== task.id"
+              (click)="startEdit(task)"
+              [class.completed]="task.completed">
+          {{ task.title }}
+        </span>
 
-      <input *ngIf="editingId === task.id"
-             [(ngModel)]="editText"
-             (blur)="saveEdit(task)"
-             (keyup.enter)="saveEdit(task)" />
+        <input *ngIf="editingId === task.id"
+               [(ngModel)]="editText"
+               (blur)="saveEdit(task)"
+               (keyup.enter)="saveEdit(task)" />
+      </div>
 
-      <button (click)="deleteTask(task.id)">Delete</button>
+      <button class="delete-btn" (click)="deleteTask(task.id)">Delete</button>
     </li>
   </ul>
 </div>

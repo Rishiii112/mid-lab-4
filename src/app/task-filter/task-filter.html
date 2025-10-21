@@ -1,14 +1,19 @@
 <div class="filter-buttons">
-    <button 
-      [class.active]="taskService.currentFilter === 'all'"
-      (click)="setFilter('all')">All</button>
-  
-    <button 
-      [class.active]="taskService.currentFilter === 'active'"
-      (click)="setFilter('active')">Active</button>
-  
-    <button 
-      [class.active]="taskService.currentFilter === 'completed'"
-      (click)="setFilter('completed')">Completed</button>
-  </div>
-  
+  <button 
+    [class.active]="taskService.currentFilter === 'all'"
+    (click)="setFilter('all')">
+    All
+  </button>
+
+  <button 
+    [class.active]="taskService.currentFilter === 'active'"
+    (click)="setFilter('active')">
+    Active
+  </button>
+
+  <button 
+    [class.active]="taskService.currentFilter === 'completed'"
+    (click)="setFilter('completed')">
+    Completed
+  </button>
+</div>
